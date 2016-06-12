@@ -1,43 +1,62 @@
-package main.java.juicynet.entities;
+package juicynet.entities;
 
 
 //import javax.persistence.*;
+
+import lombok.*;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 /*@Entity
 @Table(name = "USERS")*/
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class JuicyUser implements Serializable {
 
     /*@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "HAPPY_USER_ID")*/
+    @Getter
+    @Setter
     private Long id;
 
     /*@Column(name = "NAME")*/
+    @Getter
+    @Setter
     private String name;
 
     /*@Column(name = "SURNAME")*/
+    @Getter
+    @Setter
     private String surname;
 
     /*@Column(name = "LOGIN")*/
+    @Getter
+    @Setter
     private String login;
 
     /*@Column(name = "EMAIL")*/
+    @Getter
+    @Setter
     private String email;
 
     /*@Column(name = "CITY")*/
+    @Getter
+    @Setter
     private String city;
 
     /*@Column(name = "ABOUT_USER")*/
+    @Getter
+    @Setter
     private String aboutUser;
 
     //@Column(name = "AVATAR")
+    @Getter
+    @Setter
     private String avatar;
-
-    public JuicyUser() {
-    }
 
     //@JoinColumn(name = "FRIENDS")//todo может join columns?
     /*@ManyToMany
@@ -46,89 +65,13 @@ public class JuicyUser implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "HAPPY_USER_ID")}
     )*/
     //@ForeignKey(name = "FK_SNT_FRIENDS", inverseName = "")
-    private Set<JuicyUser> friends = new HashSet<>();
+    @Getter
+    @Setter
+    private Set<JuicyUser> friends = new HashSet<JuicyUser>();
 
     /*@JoinColumn(name = "MESSAGES")
     @OneToMany*/
+    @Getter
+    @Setter
     private Set<PrivateMessage> messages = new HashSet<PrivateMessage>();//todo when this list should be initialized?
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getAboutUser() {
-        return aboutUser;
-    }
-
-    public void setAboutUser(String aboutUser) {
-        this.aboutUser = aboutUser;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Set<PrivateMessage> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(Set<PrivateMessage> messages) {
-        this.messages = messages;
-    }
-
-    public Set<JuicyUser> getFriends() {
-        return friends;
-    }
-
-    public void setFriends(Set<JuicyUser> friends) {
-        this.friends = friends;
-    }
 }
