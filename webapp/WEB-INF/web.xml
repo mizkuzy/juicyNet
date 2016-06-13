@@ -1,0 +1,11 @@
+<!--todo check it-->
+<!--Logback. To get HTML table with logs. See it http://host/yourWebapp/lbClassicStatus-->
+<servlet>
+    <servlet-name>ViewStatusMessages</servlet-name>
+    <servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>ViewStatusMessages</servlet-name>
+<url-pattern>/lbClassicStatus</url-pattern>
+</servlet-mapping>
