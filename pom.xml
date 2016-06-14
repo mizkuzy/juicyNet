@@ -13,10 +13,18 @@
         <junit.version>4.12</junit.version>
         <logback.version>1.1.7</logback.version>
         <lombok.version>1.16.8</lombok.version>
+        <servlet.version>3.1.0</servlet.version>
+        <mavenwarplugin.version>2.1.1</mavenwarplugin.version>
     </properties>
 
     <dependencies>
-        <!-- http://mvnrepository.com/artifact/org.projectlombok/lombok -->
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${servlet.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -43,4 +51,16 @@
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${mavenwarplugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
