@@ -9,7 +9,7 @@
     <title>Login</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link href="/style/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <%--<link href="signin.css" rel="stylesheet">--%>

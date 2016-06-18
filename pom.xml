@@ -10,14 +10,36 @@
     <packaging>war</packaging>
 
     <properties>
+        <dbcp.version>1.4</dbcp.version>
+        <jstl.version>1.2</jstl.version>
+        <mysql.connector.version>5.0.2</mysql.connector.version>
         <junit.version>4.12</junit.version>
         <logback.version>1.1.7</logback.version>
         <lombok.version>1.16.8</lombok.version>
         <servlet.version>3.1.0</servlet.version>
         <mavenwarplugin.version>2.1.1</mavenwarplugin.version>
+        <digester.version>2.1</digester.version>
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${dbcp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -29,6 +51,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -42,7 +65,7 @@
             <artifactId>logback-core</artifactId>
             <version>${logback.version}</version>
         </dependency>
-        <!-- http://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
+
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -51,16 +74,25 @@
 
     </dependencies>
 
-    <build>
+ <!--   <build>
+        <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>${mavenwarplugin.version}</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
                 <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${mavenwarplugin.version}</version>
+                &lt;!&ndash;<configuration>
+                    &lt;!&ndash;<warSourceDirectory>WebContent</warSourceDirectory>&ndash;&gt;
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>&ndash;&gt;
+            </plugin>
         </plugins>
-    </build>
+    </build>-->
 </project>

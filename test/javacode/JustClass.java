@@ -1,7 +1,9 @@
+package javacode;
+
 import java.sql.*;
 
 public class JustClass {
-    private static final String driver = "com.mysql.jdbc.Driver";
+    private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/juicynet";
     private static final String user = "root";
     private static final String password = "root";
@@ -19,6 +21,7 @@ public class JustClass {
         Connection connection = null;
         Statement statement = null;
         ResultSet resultSet = null;
+        PreparedStatement preparedStatement = null;
         try {
             Class.forName(driver);
             System.out.println("MySQL JDBC Driver Registered!");
@@ -38,7 +41,7 @@ public class JustClass {
                     "(4,'sasha','gulkin','sas','pswd')");*/
             String sqlStatement = "INSERT INTO users(iduser, name, surname, login, pswd) " +
                     "VALUES (?,?,?,?,?)";
-            PreparedStatement preparedStatement = connection
+            preparedStatement = connection
                     .prepareStatement(sqlStatement);
             int i = 0;
             int lastID = 4;
@@ -89,6 +92,15 @@ public class JustClass {
                 if (connection != null) {
                     connection.close();
                     System.out.println("Connection is closed");
+                }
+                if (statement != null) {
+                    statement.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
